@@ -1,38 +1,325 @@
-.App {
-  text-align: center;
+:root {
+  --icon-color: #ffffff;
+  --icon-color2: #736079;
+  --background-shade: #000106;
+  --menu-color: #b2b1b1;
+  --white-color: white;
+  --menu-active: #19dafa;
+  --invert-percent: 100%;
+  --contrast-percent: "";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.theme-switch {
+  --icon-color: #000000;
+  --icon-color2: #9712c0;
+  --background-shade: #ebebeb;
+  --menu-color: #000000;
+  --white-color: rgb(0, 0, 0);
+  --menu-active: #fa3b19;
+  --invert-percent: 100%;
+  --contrast-percent: 80%;
+  width: 110vw;
+  height: 100vh;
+  background: var(--background-shade);
+  transition: background 0.3s linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-container {
+  width: 110vw;
+  height: 100vh;
+
+  background: var(--background-shade);
+  transition: background 0.3s linear;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* -------------------header section ------------------------- */
+.menu {
   display: flex;
-  flex-direction: column;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.menu ul {
+  display: inline-flex;
+  margin: 2%;
+}
+
+.menu ul li {
+  list-style: none;
+  margin-right: 2vw;
+  color: var(--menu-color);
+  cursor: pointer;
+}
+.menu ul li:hover {
+  list-style: none;
+  margin-right: 2vw;
+  color: var(--menu-active) !important;
+  cursor: pointer;
+}
+
+.dropbtn {
+  display: none;
+  font-size: 16px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  background: radial-gradient(circle at top left, #5c3757, #19d7f8);
+  border-radius: 10%;
+  display: none;
+  position: absolute;
+  background: radial-gradient(circle at top left, #a89aa6, #19d7f8);
+
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 10%;
+}
+
+.dropdown-content a:hover {
+  color: var(--white-color);
+  border: 1px solid transparent;
+  border-radius: 20%;
+  font-weight: bold;
+  background: radial-gradient(circle at top left, #fd00da, #19d7f8);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.switch-theme-icon {
+  font-size: 30px;
+  background: -moz-linear-gradient(
+    top,
+    var(--icon-color) 0%,
+    var(--icon-color2) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    var(--icon-color) 0%,
+    var(--icon-color2) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    var(--icon-color) 0%,
+    var(--icon-color2) 100%
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  top: 1.4vw;
+  right: 5vw;
+  position: absolute;
+}
+
+.active {
+  color: var(--menu-active) !important;
+}
+
+.sign-up-btn {
+  text-decoration: none;
+  position: absolute;
+  top: 1.5vw;
+  right: 10vw;
+  color: var(--white-color);
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: linear-gradient(var(--background-shade), var(--background-shade)),
+    radial-gradient(circle at top left, #fd00da, #19d7f8);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.sign-up-btn span {
+  display: inline-block;
+  padding: 5px 22px;
+}
+
+.sign-up-btn span:hover {
+  color: var(--white-color);
+  border-radius: 20px;
+  background: radial-gradient(circle at top left, #fd00da, #c4d1d3);
+}
+
+.login-btn {
+  text-decoration: none;
+  position: absolute;
+  top: 1.5vw;
+  right: 18vw;
+  color: var(--white-color);
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: linear-gradient(var(--background-shade), var(--background-shade)),
+    radial-gradient(circle at top left, #fd00da, #19d7f8);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.login-btn span {
+  display: inline-block;
+  padding: 5px 22px;
+}
+
+.login-btn span:hover {
+  color: var(--white-color);
+  border-radius: 20px;
+  background: radial-gradient(circle at top left, #fd00da, #c4d1d3);
+}
+
+/* -------------------header logo ------------------------- */
+
+.logo img {
+  width: 5vw;
+  height: auto;
+  margin-top: -11px;
+  margin-right: 50px;
+  filter: invert(var(--invert-percent)) contrast(var(--contrast-percent));
+}
+
+/* -------------------Body ------------------------- */
+
+.body-content {
+  display: block;
+  margin: 4%;
+}
+
+.app-text h1 {
+  color: var(--white-color);
+  font-size: 3vw;
+}
+
+.app-text p {
+  width: 46vw;
+  color: var(--white-color);
+  font-size: 1.5vw;
+}
+
+.body-image {
+  width: 5vw;
+  height: auto;
+  top: 20%;
+  right: 30%;
+  position: absolute;
+}
+
+/* -------------------Footer ------------------------- */
+
+.footer {
+  display: flex;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  border: 2px solid transparent;
+
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.footer-text {
+  color: var(--white-color);
+  font-size: 1vw;
+  font-weight: bold;
+  display: inline-block;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-social-icons ul {
+  display: inline-flex;
+  margin: 1%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.footer-social-icons ul li {
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  list-style: none;
+}
+
+.footer-social-icons ul li img {
+  width: 6vw;
+  height: auto;
+  filter: invert(var(--invert-percent)) contrast(var(--contrast-percent));
+}
+
+.footer-social-icons ul li img:hover {
+  width: 6vw;
+  height: auto;
+  transition: linear 0.4s;
+  transform: rotate(360deg);
+}
+
+/* -------------------Responsiveness ------------------------- */
+@media only screen and (max-width: 1300px) {
+  .login-btn {
+    right: 19vw;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 1200px) {
+  .body-image {
+    top: 10%;
+    right: 40%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+  .body-image img {
+    width: 40vw;
+  }
+
+  .footer-social-icons ul li img {
+    width: 9vw;
+  }
+
+  .footer-social-icons ul li img:hover {
+    width: 9vw;
+  }
+
+  .login-btn {
+    right: 24vw;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .sign-up-btn {
+    display: none;
+    transition: linear 0.3s;
+  }
+
+  .login-btn {
+    display: none;
+  }
+
+  .dropbtn {
+    display: block;
+  }
+
+  .dropdown {
+    position: absolute;
+    right: 10%;
+  }
+
+  .switch-theme-icon {
+    display: none;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    right: 10%;
   }
 }
